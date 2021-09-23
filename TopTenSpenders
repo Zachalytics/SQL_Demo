@@ -1,0 +1,32 @@
+WITH customer_sales_table (customer_id,			
+			   first_name,
+			   last_name,
+			   city,
+			   country,
+			  amount) 
+AS 			
+	(SELECT customer.customer_id,		
+	customer.first_name,		
+	customer.last_name,		
+	city.city,		
+	country.country,		
+	payment.amount		
+	FROM payment		
+		INNER JOIN customer ON payment.customer_id = customer.customer_id	
+		INNER JOIN address ON customer.address_id = address.address_id	
+		INNER JOIN city ON address.city_id = city.city_id	
+		INNER JOIN country ON city.country_id = country.country_id)	
+SELECT DISTINCT customer_id,			
+		first_name,	
+		last_name, 	
+		city,	
+		country,	
+		SUM (amount) AS total_spent	
+FROM customer_sales_table			
+GROUP BY customer_id, 			
+		first_name, 	
+		last_name,	
+		city,	
+		country	
+ORDER BY total_spent DESC			
+LIMIT (10)
