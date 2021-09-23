@@ -2,7 +2,7 @@
 
 In the files I've placed here, are some SQL queries based on a data set from a fictional video rental company named Rockbuster.
 
-**Simple_Clean** contains a couple of queries I would use to check the data for missing or duplicate entires.
+**Simple_Cleaning** contains a couple of queries I would use to check the data for missing or duplicate entires.
 
 **TopTenSpenders** is a demonstration of a slightly more complex query that ends up finding the top ten customers in terms of spending. This particular query also returns not just the customers name, but also the city and country they reside in. Information used later in the following project
   
