@@ -1,0 +1,31 @@
+/*checking for duplicates in table titled film
+
+SELECT title, 
+	film_id,
+	length,
+	special_features,
+	COUNT (*)
+FROM film
+GROUP BY title, 
+	film_id,
+	length,
+	special_features 
+HAVING COUNT(*) >1
+
+/* checking for missing values in table titled film
+
+SELECT film_id,
+	title,
+	description,
+	release_year,
+	language_id, 
+	rental_duration,
+	rental_rate,
+	length,
+	replacement_cost,
+	rating,
+	last_update,
+	special_features,
+	fulltext
+FROM film
+WHERE language_id IS NULL
